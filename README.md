@@ -10,7 +10,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
   * Each of the grid has its own 4 * 4 pins that hold **their own *height*s**
   * User can **choose** any of the pins and **scroll** the button below to **change** their *height*s
     Once the pins are selected, their *height*s **change immediately** to the height from scroll bar.
-    In the meanwhile, the selection will not change
+    In the meanwhile, the selection remain the same.
 * **Render Scene** (3D): For **real-time** rendering of pin-arrays
   * The right-bottom sphere is for **changing the angle of view**
 
