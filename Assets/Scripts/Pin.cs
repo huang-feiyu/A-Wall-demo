@@ -7,7 +7,7 @@ using UnityEngine.Assertions;
 public class Pin : MonoBehaviour
 {
     // Once created, immediately render 4*4 planes, and hold their heights with initial 0
-    public Tuple<Transform, int>[] Pins;
+    private Tuple<Transform, int>[] Pins;
     public List<int> SelectedPins;
 
     // Start is called before the first frame update
@@ -38,8 +38,28 @@ public class Pin : MonoBehaviour
         }
     }
 
+    // Update selected heights (invoked by ScrollBar)
+    public void SetHeight(int height)
+    {
+        foreach (var i in SelectedPins)
+        {
+            Pins[i] = new Tuple<Transform, int>(Pins[i].Item1, height);
+        }
+    }
+
+    public string GetHeight()
+    {
+        string str = "{";
+        for (int i = 0; i < 16; i++)
+        {
+            str += (SelectedPins.Contains(i) ? "*" : " ") + Pins[i].Item2 + ",";
+        }
+
+        return str + "}";
+    }
+
     // Change color [single pin]
-    void ChangeColor(int i)
+    private void ChangeColor(int i)
     {
         var renderer = Pins[i].Item1.GetComponent<MeshRenderer>();
         var materials = new List<Material>();
@@ -59,25 +79,5 @@ public class Pin : MonoBehaviour
         }
 
         renderer.SetMaterials(materials);
-    }
-
-    // Update selected heights (invoked by ScrollBar)
-    public void SetHeight(int height)
-    {
-        foreach (var i in SelectedPins)
-        {
-            Pins[i] = new Tuple<Transform, int>(Pins[i].Item1, height);
-        }
-    }
-
-    public string GetHeight()
-    {
-        string str = "{";
-        for (int i = 0; i < 16; i++)
-        {
-            str += (SelectedPins.Contains(i) ? "*" : " ") + Pins[i].Item2 + ",";
-        }
-
-        return str + "}";
     }
 }

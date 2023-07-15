@@ -1,5 +1,6 @@
 # A-Wall-demo
-[toc]
+
+> NOTE: Because it's my first time using Unity3D, code there is in a mess.
 
 ## Requirements
 
@@ -19,7 +20,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 * [x] UI Scene - Pins generating
 * [x] UI Scene - Pins’ internal heights & Scroll bar display and change
 * [ ] UI Scene - Generating JSON string
-* [ ] Render scene - Pin-array display
+* [x] Render scene - Pin-array display
 * [ ] Render scene - Coordinate system
 * [ ] API - Connect with hardware
 
@@ -32,3 +33,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 * Scroll bar with internal heights
 
 ![Scroll bar](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/eb544df0-abc4-45aa-8e9a-a9238bf56a61)
+
+* Wall display
+
+![Wall display](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/0e4a8f2f-4884-4d9b-b31b-ff0f24fb5e17)

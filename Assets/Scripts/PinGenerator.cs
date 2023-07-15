@@ -3,20 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class PinGenerator : MonoBehaviour
 {
     public GameObject pinPrefab;
+    public GameObject wallPrefab;
     public Transform pinParent;
+    public Transform wallParent;
     public TMP_InputField rowInput;
     public TMP_InputField colInput;
-    public PinHeightController pinHeightController;
+    public HeightController heightController;
 
     public void GeneratePins()
     {
         // Clear existing pins
         foreach (Transform child in pinParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in wallParent)
         {
             Destroy(child.gameObject);
         }
@@ -35,18 +43,37 @@ public class PinGenerator : MonoBehaviour
                 var pin = Instantiate(pinPrefab, pinParent);
                 // Set position based on row and column
                 pin.transform.position = new Vector3(row * 4, -col * 4, 0);
+
+                // Wall's turn
+                var wall = Instantiate(wallPrefab, wallParent);
+                // Set position based on row and column
+                wall.transform.position = new Vector3(10 + row * 4, -col * 4, 0);
             }
         }
 
         // Initialize controller with pins
-        pinHeightController.pins = new List<Pin>();
+        heightController.pins = new List<Pin>();
         var i = 0;
         foreach (Transform child in pinParent)
         {
             var pinComponent = child.GetComponent<Pin>();
             if (pinComponent != null)
             {
-                pinHeightController.pins.Add(pinComponent);
+                heightController.pins.Add(pinComponent);
+            }
+
+            i++;
+        }
+
+        // Initialize controller with walls
+        heightController.walls = new List<Wall>();
+        i = 0;
+        foreach (Transform child in wallParent)
+        {
+            var wallComponent = child.GetComponent<Wall>();
+            if (wallComponent != null)
+            {
+                heightController.walls.Add(wallComponent);
             }
 
             i++;

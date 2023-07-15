@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4a406b5cbe56f4699788d462d53b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedPins: 
+  wallParent: {fileID: 3843401321437374122, guid: 240552cf70623f940bf4ed59eabcc8fb, type: 3}
 --- !u!1001 &178468118453901934
 PrefabInstance:
   m_ObjectHideFlags: 0
