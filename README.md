@@ -25,4 +25,10 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 
 ## Current
 
+* Pin generating
+
 ![Pins generating](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/0c680878-96fa-4f52-a630-2ab3e0982e8d)
+
+* Scroll bar with internal heights
+
+![Scroll bar](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/eb544df0-abc4-45aa-8e9a-a9238bf56a61)
