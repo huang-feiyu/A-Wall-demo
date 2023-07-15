@@ -17,7 +17,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 ## Plan
 
 * [x] UI Scene - Pins generating
-* [ ] UI Scene - Pins’ internal heights & Scroll bar display and change
+* [x] UI Scene - Pins’ internal heights & Scroll bar display and change
 * [ ] UI Scene - Generating JSON string
 * [ ] Render scene - Pin-array display
 * [ ] Render scene - Coordinate system

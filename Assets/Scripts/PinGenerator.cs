@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,7 @@ public class PinGenerator : MonoBehaviour
     public Transform pinParent;
     public TMP_InputField rowInput;
     public TMP_InputField colInput;
+    public PinHeightController pinHeightController;
 
     public void GeneratePins()
     {
@@ -30,10 +32,49 @@ public class PinGenerator : MonoBehaviour
             for (int col = 0; col < cols; col++)
             {
                 // Instantiate pin object
-                GameObject pin = Instantiate(pinPrefab, pinParent);
+                var pin = Instantiate(pinPrefab, pinParent);
                 // Set position based on row and column
                 pin.transform.position = new Vector3(row * 4, col * 4, 0);
             }
+        }
+
+        pinHeightController.pins = new Pin[rows * cols];
+
+        // Other initial settings
+        StartCoroutine(DelayInit());
+    }
+
+    // Waiting for one frame
+    private IEnumerator DelayInit()
+    {
+        // Wait for one frame to ensure Start() method of Pin objects is called
+        yield return null;
+
+        var i = 0;
+        foreach (Transform child in pinParent)
+        {
+            var pinComponent = child.GetComponent<Pin>();
+            if (pinComponent != null)
+            {
+                pinHeightController.pins[i] = pinComponent;
+            }
+
+            i++;
+        }
+    }
+
+    public void Debug()
+    {
+        int i = 0;
+        foreach (Transform child in pinParent)
+        {
+            var pinComponent = child.GetComponent<Pin>();
+            if (pinComponent != null)
+            {
+                print("Pin[" + i + "]: " + pinComponent.GetHeight());
+            }
+
+            i++;
         }
     }
 }
