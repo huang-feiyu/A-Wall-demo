@@ -16,9 +16,13 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 
 ## Plan
 
-* [ ] UI Scene - Grids generating
+* [x] UI Scene - Pins generating
 * [ ] UI Scene - Pins’ internal heights & Scroll bar display and change
 * [ ] UI Scene - Reset button & Generating JSON string
 * [ ] Render scene - Pin-array display
 * [ ] Render scene - Coordinate system
 * [ ] API - Connect with hardware
+
+## Current
+
+![Pins generating](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/0c680878-96fa-4f52-a630-2ab3e0982e8d)

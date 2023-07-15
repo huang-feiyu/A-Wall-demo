@@ -33,7 +33,6 @@ public class Pin : MonoBehaviour
                 hit.collider.gameObject == Pins[i].Item1.gameObject)
             {
                 ChangeColor(i);
-                Debug.Log("SelectedPins Length: " + SelectedPins.Count);
             }
         }
     }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e70a485d5bf6fbc4faf4daca4deb5f94
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pinPrefab: {instanceID: 0}
+  - pinParent: {instanceID: 0}
+  - rowInput: {instanceID: 0}
+  - colInput: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
