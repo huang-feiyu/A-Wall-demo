@@ -26,37 +26,27 @@ public class PinGenerator : MonoBehaviour
         int.TryParse(rowInput.text, out rows);
         int.TryParse(colInput.text, out cols);
 
-        // Generate pins
-        for (int row = 0; row < rows; row++)
+        // Generate pins; row first, col second => pins[row][col], i = row*cols + col
+        for (int col = 0; col < cols; col++)
         {
-            for (int col = 0; col < cols; col++)
+            for (int row = 0; row < rows; row++)
             {
                 // Instantiate pin object
                 var pin = Instantiate(pinPrefab, pinParent);
                 // Set position based on row and column
-                pin.transform.position = new Vector3(row * 4, col * 4, 0);
+                pin.transform.position = new Vector3(row * 4, -col * 4, 0);
             }
         }
 
-        pinHeightController.pins = new Pin[rows * cols];
-
-        // Other initial settings
-        StartCoroutine(DelayInit());
-    }
-
-    // Waiting for one frame
-    private IEnumerator DelayInit()
-    {
-        // Wait for one frame to ensure Start() method of Pin objects is called
-        yield return null;
-
+        // Initialize controller with pins
+        pinHeightController.pins = new List<Pin>();
         var i = 0;
         foreach (Transform child in pinParent)
         {
             var pinComponent = child.GetComponent<Pin>();
             if (pinComponent != null)
             {
-                pinHeightController.pins[i] = pinComponent;
+                pinHeightController.pins.Add(pinComponent);
             }
 
             i++;

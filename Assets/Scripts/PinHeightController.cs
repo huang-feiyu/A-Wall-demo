@@ -9,7 +9,7 @@ public class PinHeightController : MonoBehaviour
     private const int MaxHeight = 150;
     public Scrollbar scrollbar;
     public TMP_Text heightText;
-    public Pin[] pins;
+    public List<Pin> pins;
 
     private void Start()
     {
