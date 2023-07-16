@@ -13,7 +13,8 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
     Once the pins are selected, their *height*s **change immediately** to the height from scroll bar.
     In the meanwhile, the selection remain the same.
 * **Render Scene** (3D): For **real-time** rendering of pin-arrays
-  * The right-bottom sphere is for **changing the angle of view**
+  * The ~~right-bottom sphere~~ is for **changing the angle of view**
+  * Using mouse dragging to change the viewpoint and scale
 
 ## Plan
 
@@ -21,7 +22,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 * [x] UI Scene - Pins’ internal heights & Scroll bar display and change
 * [ ] UI Scene - Generating JSON string
 * [x] Render scene - Pin-array display
-* [ ] Render scene - Coordinate system
+* [x] Render scene - 3D representation (with rotation and zoom)
 * [ ] API - Connect with hardware
 
 ## Current
@@ -37,3 +38,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 * Wall display
 
 ![Wall display](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/0e4a8f2f-4884-4d9b-b31b-ff0f24fb5e17)
+
+* 3D representation
+
+![3D representation](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/9afbaa18-16a0-4778-9c4c-1b61dadcba1b)

@@ -16,8 +16,15 @@ public class PinGenerator : MonoBehaviour
     public TMP_InputField colInput;
     public HeightController heightController;
 
+    public new Transform camera;
+
     public void GeneratePins()
     {
+        var pos = new Vector3((float)3.41, (float)0.52, (float)-27.399999);
+        var rot = new Quaternion();
+        camera.position = pos;
+        camera.rotation = rot;
+
         // Clear existing pins
         foreach (Transform child in pinParent)
         {
@@ -28,6 +35,7 @@ public class PinGenerator : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
         pinParent.DetachChildren();
         wallParent.DetachChildren();
 
@@ -46,12 +54,12 @@ public class PinGenerator : MonoBehaviour
                 // Instantiate pin object
                 var pin = Instantiate(pinPrefab, pinParent);
                 // Set position based on row and column
-                pin.transform.position = new Vector3(row * 4, -col * 4, 0);
+                pin.transform.position = new Vector3(-15 + row * 4, 10 - col * 4, 0);
 
                 // Wall's turn
                 var wall = Instantiate(wallPrefab, wallParent);
                 // Set position based on row and column
-                wall.transform.position = new Vector3(10 + row * 4, -col * 4, 0);
+                wall.transform.position = new Vector3(row * 4, -col * 4, 0);
             }
         }
 
