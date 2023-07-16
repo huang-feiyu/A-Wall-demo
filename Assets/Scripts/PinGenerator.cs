@@ -28,6 +28,10 @@ public class PinGenerator : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        pinParent.DetachChildren();
+        wallParent.DetachChildren();
+
+        Assert.IsTrue(pinParent.childCount == 0 && wallParent.childCount == 0);
 
         // Parse input values
         int rows, cols;
