@@ -6,9 +6,9 @@ using UnityEngine.Assertions;
 
 public class Wall : MonoBehaviour
 {
-    // TODO: measurement
-    private static readonly Vector3 Init = new Vector3(1, 1, 1);
-    private const int Scale = 1;
+    // Measurement: initial: 0.001 as nothing; height scale: 1 round <=> 1 mm <=> 0.05
+    private static readonly Vector3 Init = new(1, 1, (float)0.001);
+    private const double Scale = 0.05;
 
     // Once created, immediately render 4*4 planes, and hold their heights with initial 0
     private Transform[] Cubes;
@@ -36,9 +36,9 @@ public class Wall : MonoBehaviour
     {
         foreach (var i in SelectedCubes)
         {
-            Cubes[i].localScale = Init + new Vector3(0, 0, height * Scale);
+            Cubes[i].localScale = Init + new Vector3(0, 0, (float)(height * Scale));
             Cubes[i].position = new Vector3(Cubes[i].position.x, Cubes[i].position.y,
-                initZ - (float)height * Scale / 2);
+                (float)(initZ - (float)height * Scale / 2));
         }
     }
 

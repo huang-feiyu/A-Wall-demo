@@ -47,15 +47,15 @@ public class Pin : MonoBehaviour
         }
     }
 
-    public string GetHeight()
+    public int[] GetHeight()
     {
-        string str = "{";
+        var heights = new int[16];
         for (int i = 0; i < 16; i++)
         {
-            str += (SelectedPins.Contains(i) ? "*" : " ") + Pins[i].Item2 + ",";
+            heights[i] = Pins[i].Item2;
         }
 
-        return str + "}";
+        return heights;
     }
 
     // Change color [single pin]

@@ -4,7 +4,7 @@
 
 ## Requirements
 
-Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=design&node-id=0%3A1&mode=design&t=Zj3Btugz5ezKObkT-1)
+Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=design&node-id=0%3A1&mode=design&t=Zj3Btugz5ezKObkT-1) — In fact, I need to develop a 2D application rather than 3D application.
 
 * **UI Scene** (2D): For user’s input
   * Input with ***m* * *n*** pin-arrays (4 * 4), generate grids
@@ -20,10 +20,10 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 
 * [x] UI Scene - Pins generating
 * [x] UI Scene - Pins’ internal heights & Scroll bar display and change
-* [ ] UI Scene - Generating JSON string
+* [x] UI Scene - Generating JSON string
 * [x] Render scene - Pin-array display
 * [x] Render scene - 3D representation (with rotation and zoom)
-* [ ] API - Connect with hardware
+* [x] API - Connect with hardware (serial communication)
 
 ## Current
 
@@ -42,3 +42,7 @@ Prototype: [Figma](https://www.figma.com/file/GHDlVUXCCPqTFhS1Gh3XL2/demo?type=d
 * 3D representation
 
 ![3D representation](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/9afbaa18-16a0-4778-9c4c-1b61dadcba1b)
+
+* Connect with hardware
+
+![image](https://github.com/huang-feiyu/A-Wall-demo/assets/70138429/918d029d-f135-4ac9-be8e-f2f906bca217)

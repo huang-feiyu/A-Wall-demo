@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -15,6 +16,8 @@ public class PinGenerator : MonoBehaviour
     public TMP_InputField rowInput;
     public TMP_InputField colInput;
     public HeightController heightController;
+
+    public Button sender;
 
     public new Transform camera;
 
@@ -42,12 +45,11 @@ public class PinGenerator : MonoBehaviour
         Assert.IsTrue(pinParent.childCount == 0 && wallParent.childCount == 0);
 
         // Parse input values
-        int rows, cols;
-        int.TryParse(rowInput.text, out rows);
-        int.TryParse(colInput.text, out cols);
+        int.TryParse(rowInput.text, out var rows);
+        int.TryParse(colInput.text, out var cols);
 
         // Generate pins; row first, col second => pins[row][col], i = row*cols + col
-        for (int col = 0; col < cols; col++)
+        for (var col = 0; col < cols; col++)
         {
             for (int row = 0; row < rows; row++)
             {
@@ -92,15 +94,40 @@ public class PinGenerator : MonoBehaviour
         }
     }
 
+    //=== For JSON ===//
+    [Serializable]
+    public class PortJson
+    {
+        // JSON: {"i":1,"c":"motor","d":[40,30,20,10,40,30,20,10,40,30,20,10,40,30,20,10]}
+
+        // i: [1, ..., n]
+        // c: "motor"
+        // d: [0, 1, 2, ..., 15, 16]
+        public int i;
+        public string c = "motor";
+        public int[] d;
+    }
+
+    // Send JSON string manually USING debug button
     public void Debug()
     {
-        int i = 0;
+        var i = 0;
         foreach (Transform child in pinParent)
         {
             var pinComponent = child.GetComponent<Pin>();
             if (pinComponent != null)
             {
-                print("Pin[" + i + "]: " + pinComponent.GetHeight());
+                var jsonObj = new PortJson
+                {
+                    i = i + 1,
+                    d = pinComponent.GetHeight()
+                };
+                var json = JsonUtility.ToJson(jsonObj);
+                print(json);
+                // send to hardware
+                sender.gameObject.GetComponent<CommunicateP>().SendData(json);
+                // delay for 50ms to drive motors simultaneously
+                Thread.Sleep(50);
             }
 
             i++;
